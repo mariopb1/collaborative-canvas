@@ -1,10 +1,14 @@
 import 'package:canvas_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  // TODO: here you will need to initialize your connection to the supabase backend
-
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://xwmbqeueyunbhcwmnzqw.supabase.co',
+    anonKey: 'sb_publishable_oeZ8_EraDEGtHORv7Z864Q_R7QC_xQq',
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

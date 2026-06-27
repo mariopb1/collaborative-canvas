@@ -1,3 +1,4 @@
+import 'package:canvas_app/authentication/auth_service.dart';
 import 'package:canvas_app/screens/canvas_screen.dart';
 import 'package:canvas_app/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,12 @@ class _SignupScreenState extends State<SignupScreen> {
     debugPrint('password input: ${passwordController.text}');
     debugPrint('password input: ${password2Controller.text}');
 
+    AuthService authService = AuthService();
+
+    bool isSignedUp = await authService.signUpNewUser(
+      emailController.text,
+      passwordController.text,
+    );
     // TODO:
     // if the signup is successfull we want to navigate to the CanvasScreen
     // for now we just navigate to the canvas screen here without actual sign up
