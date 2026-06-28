@@ -19,7 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signIn() async {
 
     final AuthService authService = AuthService();
-
+    // authService.loginWithEmail prüft ob der User seine Daten richtig angegeben hat und wenn nicht, dann liefert er
+    // den entsprechenden Fehler
     final loggedIn = await authService.loginWithEmail(
   emailController.text,
   passwordController.text,

@@ -29,30 +29,29 @@ class _CanvasScreenState extends State<CanvasScreen> {
   }
 
   // This is called when pressing the "Logout"-Button in the top right.
-Future<void> logout() async {
-  final authService = AuthService();
+  Future<void> logout() async {
+    final authService = AuthService();
 
-// TODO: log out your user here using your AuthService
-    debugPrint('logout icon clicked');
-  final loggedOut = await authService.signOut();
+    // TODO: log out your user here using your AuthService
+    // Erledigt: Wenn wir auf den Icon clicken, dann erscheint der Text unten und der User ist ausgellogt, was dann später von auth_gate
+    // als Info bekommen wird.
+    final loggedOut = await authService.signOut();
 
-
-  if (loggedOut != true) {
-    debugPrint("Logout fehlgeschlagen");
-  }
-  ScaffoldMessenger.of(context).showSnackBar(
+  // TODO:
+    // for now we redirect the user to the login screen here
+    // in your solution the AuthGate will handle this navigation, you need to remove it here
+    // Erledigt: die variable loggedOut bekommt die State logged out und zeigt sofort den Loginscreen
+    if (loggedOut != true) {
+      debugPrint("Logout fehlgeschlagen");
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Logout successful! Redirecting to login...')),
     );
 
-        // TODO:
+    // TODO:
     // for now we redirect the user to the login screen here
     // in your solution the AuthGate will handle this navigation, you need to remove it here
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
-    );
-}
- 
+  }
 
   @override
   Widget build(BuildContext context) {

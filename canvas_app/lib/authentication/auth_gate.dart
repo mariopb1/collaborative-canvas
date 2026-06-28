@@ -9,6 +9,7 @@ class AuthGate extends StatelessWidget {
 
   final supabase = Supabase.instance.client;
   
+  // Hier wird die aktuelle State von der "supabaseClient" und reagiert durch liefern von den richtigen
   @override
   Widget build(BuildContext context) {
     return Scaffold(

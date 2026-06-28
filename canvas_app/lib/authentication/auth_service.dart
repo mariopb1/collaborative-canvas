@@ -39,6 +39,7 @@ class AuthService {
   return null;
 }
 
+// Methode, die den User ausloggt 
 Future<dynamic> signOut() async {
   try {
     await supabase.auth.signOut();
