@@ -26,7 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
   passwordController.text,
 );
   if (loggedIn != true) {
-  debugPrint("Login fehlgeschlagen");
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text("E-Mail-Adresse oder Passwort ist falsch.\nBitte versuchen Sie es erneut."),
+    ),
+  );
   return;
 }
 

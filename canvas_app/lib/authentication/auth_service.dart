@@ -16,7 +16,8 @@ class AuthService {
       }
     } on AuthApiException catch (error) {
       // TODO: Implement Error Handling!
-      debugPrint(error.message);
+      // Erledigt: Falls wir eine Fehlermeldung beim Einlogen haben, dann zeigen wir, dass die E-Mail-Adresse oder Password falsch ist
+      return "E-Mail-Adresse oder Passwort ist falsch.";
     }
     return null;
   }
@@ -39,7 +40,7 @@ class AuthService {
   return null;
 }
 
-// Methode, die den User ausloggt 
+// Methode, die den User ausloggt
 Future<dynamic> signOut() async {
   try {
     await supabase.auth.signOut();
