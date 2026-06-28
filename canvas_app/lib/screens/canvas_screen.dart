@@ -1,3 +1,4 @@
+import 'package:canvas_app/authentication/auth_service.dart';
 import 'package:canvas_app/screens/login_screen.dart';
 import 'package:canvas_app/widgets/color_palette.dart';
 import 'package:canvas_app/widgets/pixel_grid.dart';
@@ -28,23 +29,30 @@ class _CanvasScreenState extends State<CanvasScreen> {
   }
 
   // This is called when pressing the "Logout"-Button in the top right.
-  void logout() {
-    // TODO: log out your user here using your AuthService
-    debugPrint('logout icon clicked');
+Future<void> logout() async {
+  final authService = AuthService();
 
-    // TODO: to inform the user we show a message, e.g. via a SnackBar
-    ScaffoldMessenger.of(context).showSnackBar(
+// TODO: log out your user here using your AuthService
+    debugPrint('logout icon clicked');
+  final loggedOut = await authService.signOut();
+
+
+  if (loggedOut != true) {
+    debugPrint("Logout fehlgeschlagen");
+  }
+  ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Logout successful! Redirecting to login...')),
     );
 
-    // TODO:
+        // TODO:
     // for now we redirect the user to the login screen here
     // in your solution the AuthGate will handle this navigation, you need to remove it here
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const LoginScreen()),
     );
-  }
+}
+ 
 
   @override
   Widget build(BuildContext context) {
