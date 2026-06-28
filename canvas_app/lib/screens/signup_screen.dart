@@ -27,19 +27,20 @@ class _SignupScreenState extends State<SignupScreen> {
 
     AuthService authService = AuthService();
 
-    bool isSignedUp = await authService.signUpNewUser(
-      emailController.text,
-      passwordController.text,
+
+    bool isSignedUp = await authService.signUpNewUser(emailController.text,passwordController.text,);
+
+    if (isSignedUp) {
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CanvasScreen()),
     );
+    }
     // TODO:
     // if the signup is successfull we want to navigate to the CanvasScreen
     // for now we just navigate to the canvas screen here without actual sign up
     // -> you need to change this
     // -> if signup is a success you use Navigator.pop(context) to remove this SignupScreen from navigation/route stack
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const CanvasScreen()),
-    );
   }
 
   @override
