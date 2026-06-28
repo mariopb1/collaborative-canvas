@@ -1,3 +1,4 @@
+import 'package:canvas_app/authentication/auth_service.dart';
 import 'package:canvas_app/screens/canvas_screen.dart';
 import 'package:canvas_app/screens/signup_screen.dart';
 import 'package:canvas_app/widgets/password_text_field.dart';
@@ -13,21 +14,24 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  
 
   Future<void> signIn() async {
-    // TODO: sign in your user via your AuthService
-    debugPrint('onPressed: sign in');
-    debugPrint('email input: ${emailController.text}');
-    debugPrint('password input: ${passwordController.text}');
 
-    // TODO:
-    // to start we just navigate to the canvas screen here without actual login
-    // -> you need to change this
-    // in your solution the AuthGate will handle this navigation, you need to remove it here
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const CanvasScreen()),
-    );
+    final AuthService authService = AuthService();
+
+    final loggedIn = await authService.loginWithEmail(
+  emailController.text,
+  passwordController.text,
+);
+  if (loggedIn != true) {
+  debugPrint("Login fehlgeschlagen");
+  return;
+}
+
+if (mounted) {
+  setState(() {});
+}
   }
 
   @override

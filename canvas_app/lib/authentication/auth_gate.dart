@@ -6,7 +6,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthGate extends StatelessWidget {
   AuthGate({super.key});
+
   final supabase = Supabase.instance.client;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -16,6 +16,7 @@ class AuthService {
       }
     } on AuthApiException catch (error) {
       // TODO: Implement Error Handling!
+      debugPrint(error.message);
     }
     return null;
   }
@@ -41,9 +42,9 @@ class AuthService {
 Future<dynamic> signOut() async {
   try {
     await supabase.auth.signOut();
-  } 
-  on AuthApiException catch (error) {
-  debugPrint(error.message); 
+    return true;
+  } on AuthApiException catch (error) {
+    debugPrint(error.message);
   }
 
   return null;
