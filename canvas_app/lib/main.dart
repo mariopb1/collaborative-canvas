@@ -1,4 +1,4 @@
-import 'package:canvas_app/authentication/auth_gate';
+import 'package:canvas_app/authentication/auth_gate.dart';
 import 'package:canvas_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
