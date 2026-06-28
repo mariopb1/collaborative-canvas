@@ -5,7 +5,7 @@ class DatabaseService {
   // TODO: this name has to be the name of your supabase table!
   static const tableName = 'pixels';
 
-  // Get a reference your Supabase client
+  // Get a reference of our Supabase client
   final supabase = Supabase.instance.client;
 
   // Save information on one Pixel in database

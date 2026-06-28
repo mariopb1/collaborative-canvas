@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
@@ -18,4 +19,34 @@ class AuthService {
     }
     return null;
   }
+
+// Meldet einen Benutzer mit E-Mail und Passwort an.
+  Future<dynamic> loginWithEmail(String email, String password) async {
+  try {
+    final AuthResponse res = await supabase.auth.signInWithPassword(
+      email: email,
+      password: password,
+    );
+    //res.session ist die aktuelle Login-Sitzung.
+    if (res.user != null && res.session != null) {
+      return true;
+    }
+  } on AuthApiException catch (error) {
+  debugPrint(error.message); 
+  }
+
+  return null;
+}
+
+Future<dynamic> signOut() async {
+  try {
+    await supabase.auth.signOut();
+  } 
+  on AuthApiException catch (error) {
+  debugPrint(error.message); 
+  }
+
+  return null;
+}
+
 }
