@@ -1,3 +1,4 @@
+import 'package:canvas_app/authentication/auth_gate';
 import 'package:canvas_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       // TODO:
       // for now we will start our app with the login screen
       // you will need to change this to your AuthGate
-      home: const LoginScreen(),
+      home: AuthGate(),
     );
   }
 }
