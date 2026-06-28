@@ -15,41 +15,46 @@ class AuthService {
         return true;
       }
     } on AuthApiException catch (error) {
+      debugPrint(error.message + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
+       if (error.message.contains("should")) {
+    return "Das Kennwort muss mindestens 6 Zeichen enthalten.";
+  }
+
       // TODO: Implement Error Handling!
-      // Erledigt: Falls wir eine Fehlermeldung beim Einlogen haben, dann zeigen wir, dass die E-Mail-Adresse oder Password falsch ist
-      return "E-Mail-Adresse oder Passwort ist falsch.";
+      // Erledigt
+      return "Die Registrierung ist fehlgeschlagen.";
     }
     return null;
   }
 
-// Meldet einen Benutzer mit E-Mail und Passwort an.
+  // Meldet einen Benutzer mit E-Mail und Passwort an.
   Future<dynamic> loginWithEmail(String email, String password) async {
-  try {
-    final AuthResponse res = await supabase.auth.signInWithPassword(
-      email: email,
-      password: password,
-    );
-    //res.session ist die aktuelle Login-Sitzung.
-    if (res.user != null && res.session != null) {
-      return true;
+    try {
+      final AuthResponse res = await supabase.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+      //res.session ist die aktuelle Login-Sitzung.
+      if (res.user != null && res.session != null) {
+        return true;
+      }
+    } on AuthApiException catch (error) {
+      return "E-Mail-Adresse oder Passwort ist falsch.";
     }
-  } on AuthApiException catch (error) {
-  debugPrint(error.message); 
+
+    return null;
   }
 
-  return null;
-}
+  // Methode, die den User ausloggt
+  Future<dynamic> signOut() async {
+    try {
+      await supabase.auth.signOut();
+      return true;
+    } on AuthApiException catch (error) {
+      debugPrint(error.message);
+    }
 
-// Methode, die den User ausloggt
-Future<dynamic> signOut() async {
-  try {
-    await supabase.auth.signOut();
-    return true;
-  } on AuthApiException catch (error) {
-    debugPrint(error.message);
+    return null;
   }
-
-  return null;
-}
-
 }

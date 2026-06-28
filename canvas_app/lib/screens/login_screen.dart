@@ -14,26 +14,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  
 
   Future<void> signIn() async {
-
     final AuthService authService = AuthService();
     // authService.loginWithEmail prüft ob der User seine Daten richtig angegeben hat und wenn nicht, dann liefert er
     // den entsprechenden Fehler
     final loggedIn = await authService.loginWithEmail(
-  emailController.text,
-  passwordController.text,
-);
-  if (loggedIn != true) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text("E-Mail-Adresse oder Passwort ist falsch.\nBitte versuchen Sie es erneut."),
-    ),
-  );
-  return;
-}
-
+      emailController.text,
+      passwordController.text,
+    );
+    if (loggedIn != true) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(loggedIn)));
+      return;
+    }
   }
 
   @override
@@ -76,8 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(
                     onPressed: () {
                       debugPrint('onPressed: register new user');
-
-                      // navigate to signup screen
                       Navigator.push(
                         context,
                         MaterialPageRoute(

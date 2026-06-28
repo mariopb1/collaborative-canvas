@@ -23,6 +23,7 @@ class AuthGate extends StatelessWidget {
           final session = snapshot.hasData ? snapshot.data!.session : null;
           // If yes, show the MainScreen of the App. This screen will only be available for logged in users. If not, the LoginScreen is displayed.
           if (session != null) {
+            debugPrint("ICH GEHE ZUR CANVAS");
             return CanvasScreen();
            // return MainScreen();
           } else {
