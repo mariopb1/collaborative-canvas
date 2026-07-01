@@ -1,3 +1,4 @@
+import 'package:canvas_app/authentication/auth_service.dart';
 import 'package:canvas_app/screens/canvas_screen.dart';
 import 'package:canvas_app/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
@@ -16,23 +17,71 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Future<void> signUp() async {
     // TODO:
-    // check input and sign up your user via your AuthService
-    // -> supabase will check if mail address input is valid and return an error if not
-    // -> you need to e.g. check if both password inputs are the same
-    debugPrint('onPressed: sign up');
-    debugPrint('email input: ${emailController.text}');
-    debugPrint('password input: ${passwordController.text}');
-    debugPrint('password input: ${password2Controller.text}');
-
-    // TODO:
     // if the signup is successfull we want to navigate to the CanvasScreen
     // for now we just navigate to the canvas screen here without actual sign up
     // -> you need to change this
     // -> if signup is a success you use Navigator.pop(context) to remove this SignupScreen from navigation/route stack
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const CanvasScreen()),
+
+    //Erledigt: Wir prüfen für jeden einzelnen Fall was der "error" ist und geben was entsprechend zurück.
+
+    if (emailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        password2Controller.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Bitte füllen Sie alle Felder aus.")),
+      );
+      return;
+    }
+    if (passwordController.text.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Das Kennwort muss mindestens 6 Zeichen enthalten."),
+        ),
+      );
+      return;
+    }
+
+    if (!emailController.text.contains("@")) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
+        ),
+      );
+      return;
+    }
+    ;
+
+    if (passwordController.text != password2Controller.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Die Passwörter stimmen nicht überein.")),
+      );
+      return;
+    }
+    ;
+
+    final AuthService authService = AuthService();
+
+    final registered = await authService.signUpNewUser(
+      emailController.text,
+      passwordController.text,
     );
+    if (registered == true) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Registrierung erfolgreich.")));
+      final login = await authService.loginWithEmail(
+        emailController.text,
+        passwordController.text,
+      );
+      // Prüft, ob der automatische Login nach der Registrierung erfolgreich war
+      if (login == true) {
+        Navigator.pop(context);
+      }
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(registered)));
+    }
   }
 
   @override
