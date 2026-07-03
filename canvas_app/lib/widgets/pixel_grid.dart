@@ -58,6 +58,12 @@ class _PixelGridState extends State<PixelGrid> {
   }
 
   @override
+  void dispose() {
+    _pixelStreamSubscription?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
