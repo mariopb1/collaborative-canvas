@@ -76,17 +76,19 @@ class _PixelGridState extends State<PixelGrid> {
 
         children: List.generate(numPixels, (index) {
           return GestureDetector(
-            onTap: () {
+            onTap: () async {
+              // add async
+              Color newColor = widget.selectedColor();
               debugPrint(
                 'on pixel tap: at $index, color  ${widget.selectedColor}',
               );
 
               // Update UI immediately (otherwise we have a delay)
               setState(() {
-                currentColors[index] = widget.selectedColor();
+                currentColors[index] = newColor;
               });
 
-              // TODO: the save index and color to DB via widget.databaseService
+              await databaseService.setPixel(index, newColor);
             },
             child: Container(
               // Automatically scale the pixels relative to our screen size.
