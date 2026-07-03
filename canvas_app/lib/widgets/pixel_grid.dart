@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:canvas_app/database/database_service.dart';
 
 class PixelGrid extends StatefulWidget {
   // TODO: you will need your DatabaseService here
 
-  
   // TODO: (Nothing to do here, but read the explanation please)
   // ValueGetter is a callback that can return a value.
   // We already used a VoidCallback in assignment05 to communicate between widgets.
   // Depending on _what_ we want to communicate between widgets, Flutter has different options.
   // Here we want to be able to receive the currently selected color in ColorPalette via the canvas screen.
   final ValueGetter<Color> selectedColor;
-  
+
   const PixelGrid({required this.selectedColor, super.key});
 
   @override
@@ -25,16 +26,35 @@ class _PixelGridState extends State<PixelGrid> {
 
   late List<Color> currentColors;
 
+  final DatabaseService databaseService = DatabaseService();
+  StreamSubscription? _pixelStreamSubscription;
+
   @override
   void initState() {
     super.initState();
 
-    // Create a list to store all our pixels' colors. (default to white)
+    // Grid initial mit weißen Pixels füllen
     currentColors = List.generate(numPixels, (_) => Colors.white);
 
-    // TODO:
-    // here you need to get the saved data from the database via your databaseService,
-    // listen to data changes and update the colored pixels
+    _pixelStreamSubscription = databaseService.getPixelStream().listen((
+      snapshot,
+    ) {
+      // Supabase schickt uns eine Liste aller Pixel-Einträge
+      for (var entry in snapshot) {
+        int currentId = entry['id'];
+        int currentColorAsInt = entry['color'];
+        Color currentColor = Color(currentColorAsInt);
+
+        // Wenn die ID gültig ist und sich die Farbe wirklich geändert hat, updaten wir das UI
+        if (currentId >= 0 &&
+            currentId < numPixels &&
+            currentColors[currentId] != currentColor) {
+          setState(() {
+            currentColors[currentId] = currentColor;
+          });
+        }
+      }
+    });
   }
 
   @override
