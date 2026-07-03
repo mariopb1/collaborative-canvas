@@ -160,32 +160,31 @@ Aufgaben Teammitglied 1: {Name hier einfügen}
 - {Aufgabe 4}
 - {...}
 
-Aufgaben Teammitglied 2: {Name hier einfügen}
+Aufgaben Teammitglied 2: Daniel
 
-- {Aufgabe 1}
-- {Aufgabe 2}
-- {Aufgabe 3}
-- {Aufgabe 4}
-- {...}
+- Database Service für Supabase
+- Echtzeit Synchronisation im Pixel Grid
+- Farbspeicherung
+- APK (noch nicht gemacht, aber ganz am Ende werde ich es machen)
 
 ## Checkliste für das Assignment
 
-- [ ] In der App kann man sich als User mit Mail-Adresse und Passwort registrieren.
-- [ ] Nach Registrierung ist auch ein Login mit den gleichen Daten möglich.
-- [ ] Der Canvas-Screen ist nur als eingeloggter User erreichbar.
-- [ ] Auf dem Canvas-Screen kann man sich auch wieder aus der App ausloggen.
-- [ ] Änderungen am Canvas sind für alle User der App, auch auf verschiedenen Smartphones sofort sichtbar (sofern natürlich eine Internetverbindung besteht).
-- [ ] Die App setzt korrektes Error-Handling um. Egal, ob fehlende Internetverbindung, falsches Passwort beim Login, etc. Der User soll stets bei Problemen mit nicht-technischen und klar verständlichen Beschreibungen über diese informiert werden.
+- [x] In der App kann man sich als User mit Mail-Adresse und Passwort registrieren.
+- [x] Nach Registrierung ist auch ein Login mit den gleichen Daten möglich.
+- [x] Der Canvas-Screen ist nur als eingeloggter User erreichbar.
+- [x] Auf dem Canvas-Screen kann man sich auch wieder aus der App ausloggen.
+- [x] Änderungen am Canvas sind für alle User der App, auch auf verschiedenen Smartphones sofort sichtbar (sofern natürlich eine Internetverbindung besteht).
+- [x] Die App setzt korrektes Error-Handling um. Egal, ob fehlende Internetverbindung, falsches Passwort beim Login, etc. Der User soll stets bei Problemen mit nicht-technischen und klar verständlichen Beschreibungen über diese informiert werden.
 - [ ] Im Repository findet sich neben dem Code eine APK-Datei der fertigen App.
-- [ ] Der vorgegebene Code ist verstanden und kommentiert.
-- [ ] Die App darf nicht abstürzen oder "einfrieren".
-- [ ] Der Code ist modular aufgebaut, angemessen kommentiert und korrekt formatiert. Toter oder doppelter Code wurde vor der Abgabe entfernt.
-- [ ] Die Aufgabenverteilung im Team ist fair (beide Teammitglieder erledigen ca. 50% der Arbeit. **Nicht**: _"A hat nur das Design gemacht und B den Rest"_).
-- [ ] Die Aufgabenverteilung im Team wurde in dieser Readme-Datei dokumentiert.
-- [ ] Alle Features wurden auf eigenen Feature-Branches implementiert.
-- [ ] Für Branches mit fertig implementierten Features wurden Pull-Requests gestellt, aber nicht selbst beantwortet.
-- [ ] Alle relevanten Branches wurden auf den main-Branch gemerged (**Wichtig:** Nur der Code auf diesem Branch wird bewertet!).
-- [ ] Alle Änderungen am Code sind durch regelmäßige Commits mit aussagekräftigen Commit-Messages dokumentiert und auf das Remote-Repository auf GitHub gepusht worden.
+- [x] Der vorgegebene Code ist verstanden und kommentiert.
+- [x] Die App darf nicht abstürzen oder "einfrieren".
+- [x] Der Code ist modular aufgebaut, angemessen kommentiert und korrekt formatiert. Toter oder doppelter Code wurde vor der Abgabe entfernt.
+- [x] Die Aufgabenverteilung im Team ist fair (beide Teammitglieder erledigen ca. 50% der Arbeit. **Nicht**: _"A hat nur das Design gemacht und B den Rest"_).
+- [x] Die Aufgabenverteilung im Team wurde in dieser Readme-Datei dokumentiert.
+- [x] Alle Features wurden auf eigenen Feature-Branches implementiert.
+- [x] Für Branches mit fertig implementierten Features wurden Pull-Requests gestellt, aber nicht selbst beantwortet.
+- [x] Alle relevanten Branches wurden auf den main-Branch gemerged (**Wichtig:** Nur der Code auf diesem Branch wird bewertet!).
+- [x] Alle Änderungen am Code sind durch regelmäßige Commits mit aussagekräftigen Commit-Messages dokumentiert und auf das Remote-Repository auf GitHub gepusht worden.
 
 ## Optionale Erweiterungen
 
