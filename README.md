@@ -175,7 +175,7 @@ Aufgaben Teammitglied 2: Daniel
 - [x] Auf dem Canvas-Screen kann man sich auch wieder aus der App ausloggen.
 - [x] Änderungen am Canvas sind für alle User der App, auch auf verschiedenen Smartphones sofort sichtbar (sofern natürlich eine Internetverbindung besteht).
 - [x] Die App setzt korrektes Error-Handling um. Egal, ob fehlende Internetverbindung, falsches Passwort beim Login, etc. Der User soll stets bei Problemen mit nicht-technischen und klar verständlichen Beschreibungen über diese informiert werden.
-- [ ] Im Repository findet sich neben dem Code eine APK-Datei der fertigen App.
+- [x] Im Repository findet sich neben dem Code eine APK-Datei der fertigen App.
 - [x] Der vorgegebene Code ist verstanden und kommentiert.
 - [x] Die App darf nicht abstürzen oder "einfrieren".
 - [x] Der Code ist modular aufgebaut, angemessen kommentiert und korrekt formatiert. Toter oder doppelter Code wurde vor der Abgabe entfernt.
