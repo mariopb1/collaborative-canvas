@@ -165,7 +165,7 @@ Aufgaben Teammitglied 2: Daniel
 - Database Service für Supabase
 - Echtzeit Synchronisation im Pixel Grid
 - Farbspeicherung
-- APK (noch nicht gemacht, aber ganz am Ende werde ich es machen)
+- APK-Datei erstellt und aufs Repo hochgeladen
 
 ## Checkliste für das Assignment
 
