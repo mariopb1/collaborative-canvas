@@ -37,7 +37,7 @@ class _CanvasScreenState extends State<CanvasScreen> {
     // als Info bekommen wird.
     final loggedOut = await authService.signOut();
 
-  // TODO:
+    // TODO:
     // for now we redirect the user to the login screen here
     // in your solution the AuthGate will handle this navigation, you need to remove it here
     // Erledigt: die variable loggedOut bekommt die State logged out und zeigt sofort den Loginscreen

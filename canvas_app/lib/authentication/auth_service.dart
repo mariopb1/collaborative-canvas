@@ -17,9 +17,9 @@ class AuthService {
     } on AuthApiException catch (error) {
       debugPrint(error.message + "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
-       if (error.message.contains("should")) {
-    return "Das Kennwort muss mindestens 6 Zeichen enthalten.";
-  }
+      if (error.message.contains("should")) {
+        return "Das Kennwort muss mindestens 6 Zeichen enthalten.";
+      }
 
       // TODO: Implement Error Handling!
       // Erledigt

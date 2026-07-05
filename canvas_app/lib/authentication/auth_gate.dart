@@ -8,7 +8,7 @@ class AuthGate extends StatelessWidget {
   AuthGate({super.key});
 
   final supabase = Supabase.instance.client;
-  
+
   // Hier wird die aktuelle State von der "supabaseClient" und reagiert durch liefern von den richtigen
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AuthGate extends StatelessWidget {
           if (session != null) {
             debugPrint("ICH GEHE ZUR CANVAS");
             return CanvasScreen();
-           // return MainScreen();
+            // return MainScreen();
           } else {
             return LoginScreen();
           }
