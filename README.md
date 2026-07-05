@@ -152,13 +152,13 @@ Die Aufgabenverteilung im Team muss im folgenden Abschnitt dokumentiert werden.
 
 ## Dokumentation der Aufgabenverteilung
 
-Aufgaben Teammitglied 1: {Name hier einfügen}
+Aufgaben Teammitglied 1: Mario
 
-- {Aufgabe 1}
-- {Aufgabe 2}
-- {Aufgabe 3}
-- {Aufgabe 4}
-- {...}
+1. Create auth_gate and auth_service
+2. Create the Team and the table in supabase.
+3. Login, SignUp und Logout
+4. Route between the pages, using auth_gate
+5. Display error Messages on false Login and signup 
 
 Aufgaben Teammitglied 2: Daniel
 
