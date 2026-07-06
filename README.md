@@ -158,7 +158,7 @@ Aufgaben Teammitglied 1: Mario
 2. Create the Team and the table in supabase.
 3. Login, SignUp und Logout
 4. Route between the pages, using auth_gate
-5. Display error Messages on false Login and signup 
+5. Display error Messages on false Login and signup. 
 
 Aufgaben Teammitglied 2: Daniel
 
